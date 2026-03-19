@@ -1,0 +1,17 @@
+# ninja log v5
+26	122	7955843674725779	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+122	241	7955843675872602	emulando-poo.exe	2a8139eb9fdb64fc
+29	258	7955850639501269	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+259	520	7955850642100572	emulando-poo.exe	2a8139eb9fdb64fc
+26	114	7955850797983676	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+115	281	7955850799594555	emulando-poo.exe	2a8139eb9fdb64fc
+3	79	7955852196084796	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+79	184	7955852197113775	emulando-poo.exe	2a8139eb9fdb64fc
+4	79	7955852740598081	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+80	188	7955852741642229	emulando-poo.exe	2a8139eb9fdb64fc
+23	97	7955852820687044	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+98	201	7955852821710174	emulando-poo.exe	2a8139eb9fdb64fc
+20	87	7955852965311996	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+87	190	7955852966315640	emulando-poo.exe	2a8139eb9fdb64fc
+20	90	7955855376268409	CMakeFiles/emulando-poo.dir/main.c.obj	d7a080525c2ee5c6
+90	195	7955855377289971	emulando-poo.exe	2a8139eb9fdb64fc
