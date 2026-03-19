@@ -1,0 +1,7 @@
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/vetores-otimizacao.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/install.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/install/local.dir
+C:/workspace/cpp-masterclass/funcoes/vetores-otimizacao-passagem-parametros/vetores-otimizacao/build/Desktop_Qt_6_10_1_llvm_mingw_64_bit-Debug/CMakeFiles/install/strip.dir
