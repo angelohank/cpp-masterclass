@@ -44,6 +44,19 @@ class Date {
 
     int compare(const Date& date) const;
 
+
+    bool operator>(const Date& otherDate) const {
+        return compare(otherDate) > 0;
+    }
+
+    bool operator<(const Date& otherDate) const {
+        return compare(otherDate) < 0;
+    }
+
+    bool operator==(const Date& otherDate) const {
+        return compare(otherDate) == 0;
+    }
+
   private:
     bool _isValid {false};
     short _dia;
