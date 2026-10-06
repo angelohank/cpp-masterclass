@@ -15,7 +15,7 @@ class Date {
 
     enum {
         MIN_YEAR = 1900,
-        MAX_YEAR = 1900,
+        MAX_YEAR = 2100,
     };
 
     enum {
@@ -37,6 +37,7 @@ class Date {
 
     short lastDayOfMonth() const;
 
+    //tambem poderia ser inline
     bool isLeapYear() const; //verifica se o ano é bisexto
 
     void validate();

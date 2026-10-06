@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <iostream>
 #include "date.h"
 // se as variaveis andam em conjunto, faz sentido englobar eles em um mesmo escopo
 // para isso se usam as structs
@@ -19,14 +19,37 @@
 struct: tem todos os seus membros publicos por padrao (precisa dos blocos explicitos para ser privado)
 class: tem todos os seus membros privados por padrao (precisa dos blocos explicitos para ser publico)
  */
-
+using namespace std;
 int main() {
 
-    Date dt;
-    dt.change(21, 3, 2026);
+    Date dt1(31, 01, 2001); //valido
+    dt1.print();
 
-    Date dt2;
+    dt1.change(29, 02, 2001); //invalido | nao eh bissexto
+    dt1.print();
 
-    printf("size: %llu\n", sizeof(dt));
-    dt.print();
+    dt1.change(29, 02, 1997); //invalido | nao eh bissexto
+    dt1.print();
+
+    dt1.change(29, 02, 1996); //valido
+    dt1.print();
+
+    dt1.change(29, 02, 2000); //valido
+    dt1.print();
+
+    dt1.change(31, 06, 2001); //invalido | mes tem 30 dias
+    dt1.print();
+
+    dt1.change(31, 07, 2001); //valido
+    dt1.print();
+
+    dt1.change(31, 8, 2001); //valido
+    dt1.print();
+
+    dt1.change(31, 9, 2001); //invalido | mes tem 30 dias
+    dt1.print();
+
+    dt1.change(31, 12, 2001); //valido
+    dt1.print();
 }
+

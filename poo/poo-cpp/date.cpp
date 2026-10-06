@@ -35,7 +35,21 @@ short Date::ano() const {
 }
 
 short Date::lastDayOfMonth() const {
-    return 31;
+    /*
+     * janeiro a julho: meses pares tem 30 dias, impares tem 31
+     * fevereiro: 28 ou 29 dias, se for bissexto
+     * agosto a dezembro: meses pares tem 31 dias dias, impares tem 30
+     */
+
+    if(_mes == FEB) {
+        return isLeapYear() ? 29 : 28;
+    }
+
+    if(_mes <= JULY) {
+        return _mes % 2 == 0 ? 30 : 31;
+    }
+
+    return _mes % 2 == 0 ? 31 : 30;
 }
 
 bool Date::isLeapYear() const {
@@ -48,6 +62,21 @@ bool Date::isLeapYear() const {
      *1800: nao-bissexto pois nao eh divisivel por 400 e, embora seja divisivel por 4, tambem eh divisivel por 100
      */
 
+
+    /*
+     * eh possivel fazer resto de divisao com &, mas só funciona com potencia de 2
+     * a regra eh n-1
+     *
+     * (4 & 1) -> isso retorna se o resto eh 0 ou 1  (nesse caso, 0)
+     * (3 & 1) -> 1
+     *
+     * 1 [0001] & 1 [0001] -> 0001 == 1
+     * 2 [0010] & 1 [0001] -> 0000 == 0
+     * 3 [0011] & 1 [0001] -> 0001 == 1
+     * 4 [0100] & 1 [0001] -> 0000 == 0
+     *
+     * eh basicamente uma comparacao de true e false bit a bit
+     */
     const bool dividePor400 = _ano % 400 == 0;
     const bool dividePor4 = _ano % 4 == 0;
     const bool dividePor100 = _ano % 100 == 0;
