@@ -47,15 +47,7 @@ short Date::lastDayOfMonth() const {
         return 28 + isLeapYear();
     }
 
-    if(_mes <= JULY) {
-        //aqui pode-se usar o end de bits tambem
-        // return 30 + (_mes & 1)
-        return _mes % 2 == 0 ? 30 : 31;
-    }
-
-   //aqui pode-se usar o end de bits tambem
-   // return 31 - (_mes & 1)
-    return _mes % 2 == 0 ? 31 : 30;
+    return _mes <= JULY ? 30 + (_mes & 1) : 31 - (_mes & 1);
 }
 
 bool Date::isLeapYear() const {
