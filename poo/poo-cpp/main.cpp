@@ -22,34 +22,7 @@ class: tem todos os seus membros privados por padrao (precisa dos blocos explici
 using namespace std;
 int main() {
 
-    Date dt1(31, 01, 2001); //valido
-    dt1.print();
-
-    dt1.change(29, 02, 2001); //invalido | nao eh bissexto
-    dt1.print();
-
-    dt1.change(29, 02, 1997); //invalido | nao eh bissexto
-    dt1.print();
-
-    dt1.change(29, 02, 1996); //valido
-    dt1.print();
-
-    dt1.change(29, 02, 2000); //valido
-    dt1.print();
-
-    dt1.change(31, 06, 2001); //invalido | mes tem 30 dias
-    dt1.print();
-
-    dt1.change(31, 07, 2001); //valido
-    dt1.print();
-
-    dt1.change(31, 8, 2001); //valido
-    dt1.print();
-
-    dt1.change(31, 9, 2001); //invalido | mes tem 30 dias
-    dt1.print();
-
-    dt1.change(31, 12, 2001); //valido
-    dt1.print();
+    Date dt1(01, 01, 2001);
+    Date dt2(01, 01, 1999);
 }
 

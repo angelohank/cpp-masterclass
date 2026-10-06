@@ -42,6 +42,8 @@ class Date {
 
     void validate();
 
+    int compare(const Date& date) const;
+
   private:
     bool _isValid {false};
     short _dia;
