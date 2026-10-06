@@ -72,8 +72,9 @@ short Date::lastDayOfMonth() const {
         retorno: 30 + 1
 
      */
-    return _mes == FEB ? 28 + isLeapYear() :
-               (30 + (_mes & 1) ^ (_mes > JULY)); // operador XOR
+    return _mes != FEB ? (30 + (_mes & 1) ^ (_mes > JULY)) :// operador XOR
+               (28 + isLeapYear());
+
 
     if(_mes == FEB) {
         //se for falso, sera 28 + 0
