@@ -52,7 +52,7 @@ bool Date::isLeapYear() const {
     const bool dividePor4 = _ano % 4 == 0;
     const bool dividePor100 = _ano % 100 == 0;
 
-    return dividePor400 || (dividePor4 && !dividePor100);
+    return (dividePor4 && !dividePor100) || dividePor400;
 }
 
 void Date::validate() {
