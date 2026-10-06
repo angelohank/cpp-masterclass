@@ -41,6 +41,40 @@ short Date::lastDayOfMonth() const {
      * agosto a dezembro: meses pares tem 31 dias dias, impares tem 30
      */
 
+    //eh possivel otimizar isso, deixando em apenas um if ternario
+
+    /*
+     * se for fevereiro, segue a regra de somar com isLeapYear
+     * se nao for, segue a seguinte regra:
+        XOR só retorna 1 se as entradas forem diferentes, portanto, será retornado sempre 30 + 0 ou 30 + 1
+
+        exemplos:
+
+        mes 1:
+        (1 & 1) ^ (1 > 7)
+        1       ^    0    (entradas diferentes)
+
+        retorno: 30 + 1
+
+        --------------
+
+        mes 6:
+        (6 & 1) ^ (6 > 7)
+        0       ^    0    (entradas iguais)
+
+        retorno: 30 + 0
+        ----------------
+
+        mes 10:
+        (10 & 1) ^ (10 > 7)
+        0        ^    1    (entradas diferentes)
+
+        retorno: 30 + 1
+
+     */
+    return _mes == FEB ? 28 + isLeapYear() :
+               (30 + (_mes & 1) ^ (_mes > JULY)); // operador XOR
+
     if(_mes == FEB) {
         //se for falso, sera 28 + 0
         //se for true, sera 28 + 1
