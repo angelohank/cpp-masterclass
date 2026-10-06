@@ -49,8 +49,20 @@ class Date {
         return compare(otherDate) > 0;
     }
 
+    bool operator>=(const Date& otherDate) const {
+        return compare(otherDate) >= 0;
+    }
+
     bool operator<(const Date& otherDate) const {
         return compare(otherDate) < 0;
+    }
+
+    bool operator<=(const Date& otherDate) const {
+        return compare(otherDate) <= 0;
+    }
+
+    bool operator!=(const Date& otherDate) const {
+        return compare(otherDate) != 0;
     }
 
     bool operator==(const Date& otherDate) const {
