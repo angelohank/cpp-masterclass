@@ -5,7 +5,8 @@ project(poo-cpp LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(poo-cpp main.cpp)
+add_executable(poo-cpp main.cpp
+    date.h date.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS poo-cpp
