@@ -42,3 +42,54 @@
 
 .qtcreator/
 build/
+
+# CLion / IntelliJ
+.idea/
+
+# Qt Creator
+*.user
+*.user.*
+*.qtc_clangd/
+
+# VSCode (opcional)
+.vscode/
+
+# =========================
+# Build / CMake
+# =========================
+
+# Pastas de build
+cmake-build-*/
+out/
+
+# Arquivos gerados pelo CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# =========================
+# Binários
+# =========================
+
+*.exe
+*.out
+*.o
+*.obj
+*.so
+*.dll
+*.a
+
+# =========================
+# Sistema operacional
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# Ninja
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
