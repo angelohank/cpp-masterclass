@@ -1,5 +1,5 @@
 #include "date.h"
-#include <stdio.h>
+#include <iostream>
 
 Date::Date(short dia, short mes, short ano) {
     change(dia, mes, ano);
@@ -16,9 +16,16 @@ void Date::change(short dia, short mes, short ano) { // :: chama-se "operador de
 
 void Date::print() const {
     if (_isValid) {
-        printf("%02d/%02d/%d\n", _dia, _mes, _ano);
+
+        std::cout.fill(0); //preenche 0 à esquerda
+        std::cout.width(2); //define o tamanho da proxima impressao
+        std::cout << _dia << '/'; // printa o dia e a barra
+        std::cout.width(2); //defino que a proxima impressao tera tamanho 2 tambem
+        std::cout << _mes << '/' << _ano << std::endl;
+
+        // printf("%02d/%02d/%d\n", _dia, _mes, _ano);
     } else {
-        printf("Data invalida\n");
+        std::cout << "Data invalida" << std::endl;
     }
 }
 

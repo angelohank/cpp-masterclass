@@ -25,16 +25,6 @@ int main() {
     Date dt1(01, 01, 2001);
     Date dt2(01, 01, 1999);
 
-    if(dt1 > dt2) {
-        cout << "dt1 MAIOR que dt2" << endl;
-    }
-
-    if(dt1 < dt2) {
-        cout << "dt1 MENOR que dt2" << endl;
-    }
-
-    if(dt1 == dt2) {
-        cout << "dt1 IGUAL dt2" << endl;
-    }
+    dt1.print();
 }
 
