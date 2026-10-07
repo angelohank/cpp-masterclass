@@ -120,17 +120,3 @@ bool Date::isLeapYear() const {
 void Date::validate() {
     _isValid = (_dia >= 1 && _dia <= lastDayOfMonth()) && (_mes >= 1 && _mes <= 12) && (_ano >= MIN_YEAR && _ano <= MAX_YEAR);
 }
-
-int Date::compare(const Date& date) const {
-    /*
-     * zero se forem iguais
-     * < 0 se a primeira estiver menor
-     * > 0 se a primeira estiver maior
-     */
-
-    if( _ano != date.ano()) {
-        return _ano - date.ano();
-    }
-
-    return _mes != date.mes() ? _mes - date.mes() : _dia - date.dia();
-}

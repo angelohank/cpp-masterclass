@@ -10,6 +10,8 @@ uma outra opção é o pragma once -> basicamente faz a mesma coisa, mas com uma
 #ifndef DATE_H
 #define DATE_H
 
+#include <compare>
+
 class Date {
   public:
 
@@ -42,31 +44,21 @@ class Date {
 
     void validate();
 
-    int compare(const Date& date) const;
+    auto operator<=>(const Date& otherDate) const {
+        //strong_ordering -> precisa do header COMPARE
+        if( const auto cmp = _ano <=> otherDate.ano(); cmp != 0 ) { //spaceship comparation, 3-way-comparation
+             return cmp;
+        }
 
+        if( const auto cmp = _mes <=> otherDate.mes(); cmp != 0 ) {
+            return cmp;
+        }
 
-    bool operator>(const Date& otherDate) const {
-        return compare(otherDate) > 0;
-    }
-
-    bool operator>=(const Date& otherDate) const {
-        return compare(otherDate) >= 0;
-    }
-
-    bool operator<(const Date& otherDate) const {
-        return compare(otherDate) < 0;
-    }
-
-    bool operator<=(const Date& otherDate) const {
-        return compare(otherDate) <= 0;
-    }
-
-    bool operator!=(const Date& otherDate) const {
-        return compare(otherDate) != 0;
+        return _dia <=> otherDate.dia();
     }
 
     bool operator==(const Date& otherDate) const {
-        return compare(otherDate) == 0;
+        return (*this <=> otherDate ) == 0;
     }
 
   private:
