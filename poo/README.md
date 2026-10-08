@@ -1,0 +1,26 @@
+# O que foi visto
+
+- structs
+- funções especializadas para trabalhar com a struct
+- Otimizando as funções de Date
+- Limitações da linguagem C na POO
+  - É possível fazer, mas nao existe esse recurso nativamente, exigindo um esforço maior
+- Propriedades, encapsulamento, classes e objetos
+- Métodos, modificadores de acesso (public e private)
+- ponteiro this
+  - embora seja um ponteiro, é passado pelo registrador, então é rapido
+- construtores e inicialização de membrom in-class no c++ 11
+- construtor com multiplos parametros e godbolt
+- class vs struct
+  - class tem tudo privado por default
+  - struct tem tudo public por default
+- trabalho com arquivos header
+- operadores em c++
+  - sobrecarga de operadores
+- 3-way Comparison Operador ou Spaceship operator (c++ 20)
+- cout com fill e width
+  - completar impressoes com 0
+- printlib (c++ 23)
+- modules
+- bitFields
+  - otimizar classes para gastar menos memória definindo o tamanho maximo, em bits, de cada propriedade
