@@ -15,6 +15,7 @@ uma outra opção é o pragma once -> basicamente faz a mesma coisa, mas com uma
 #define DATE_H
 
 #include <compare>
+#include <stdint.h>
 
 class Date {
   public:
@@ -30,11 +31,11 @@ class Date {
     };
 
     Date() = default;
-    Date(short dia, short mes, short ano) {
+    Date(uint8_t dia, uint8_t mes, uint16_t ano) {
         change(dia, mes, ano);
     }
 
-    void change(short dia, short mes, short ano) { // :: chama-se "operador de resolucao de escopo"
+    void change(uint8_t dia, uint8_t mes, uint16_t ano) { // :: chama-se "operador de resolucao de escopo"
         _ano = ano;
         _mes = mes;
         _dia = dia;
@@ -107,14 +108,14 @@ class Date {
         return _mes <= JULY ? 30 + (_mes & 1) : 31 - (_mes & 1);
     }
 
-    short dia() const {
+    uint8_t dia() const {
         return _dia;
     }
 
-    short mes() const {
+    uint8_t mes() const {
         return _mes;
     }
-    short ano() const {
+    uint16_t ano() const {
         return _ano;
     }
 
@@ -169,10 +170,19 @@ class Date {
     }
 
   private:
-    bool _isValid {false};
-    short _dia;
-    short _mes;
-    short _ano;
+    //bitFields -> permite definir o tamanho maximo (em bits)
+    //usando com -> tipo propriedade : tamanho
+
+    //usar quando o problema for: economizar memoria
+    //nao usar quando o problema for: velocidade (nesse caso eh melhoro fastInt)
+    bool _isValid : 1 {false};
+
+    //uint8_t vai de 0 a 255
+    //uint16_t vai de 0 a 65535
+
+    uint8_t _dia : 7;
+    uint8_t _mes; //1
+    uint16_t _ano; //2
 };
 
 

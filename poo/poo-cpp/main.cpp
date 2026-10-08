@@ -26,5 +26,10 @@ int main() {
     Date dt2(01, 01, 1999);
 
     dt1.print();
+
+    cout << sizeof(dt1) << endl; //atualmente ocupando 8 bytes
+    //usando uint8 e 16, passa a ter tamanho 6 bytes
+
+    //usando bitFields reduz para 4
 }
 
