@@ -6,10 +6,6 @@ uma outra opção é o pragma once -> basicamente faz a mesma coisa, mas com uma
     atencao: pode ser que nao funcione em algum compilador
  */
 
-/*
- vantagem da lib header only: mais facil de se utilizar em outros projetos
- desvantagem: tempo de compilação sobe consideravelmente
- */
 
 #ifndef DATE_H
 #define DATE_H
