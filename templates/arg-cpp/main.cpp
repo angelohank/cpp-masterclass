@@ -22,7 +22,7 @@ T accumulate_old(int nParams, ...) {
  * retorna o proprio T
  */
 template <typename T>
-T accumulate(T value) {
+auto accumulate(T value) {
     return value;
 }
 
@@ -32,14 +32,21 @@ T accumulate(T value) {
  * essa funcionalidade se chama "variadic templates", disponivel a partir do c++ 11
  */
 template<typename T, typename... Args>
-T accumulate(T first, Args... args) {
+auto accumulate(T first, Args... args) {
     return first + accumulate(args...);
 }
 
 
 int main() {
 
-    int r = accumulate<int>(2, 3, 5);
+    //auto -> deduz o tipo da variavel de acordo com a inicialização
+    auto r = accumulate<int>(2, 3, 5);
+    cout << "tipo de R: " << typeid(r).name() << endl;
+
+    auto nome = "teste";
+    cout << "tipo de NOME: " << typeid(nome).name() << endl;
+
     cout << "result: " << r << endl;
+
     return 0;
 }
