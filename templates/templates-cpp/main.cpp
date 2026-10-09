@@ -14,6 +14,16 @@ using namespace std;
  * e toda classe, ou tipo, que tiver a definicao do operador >, vai passar a funcionar com a mesma funcao
  */
 template <class T>
+T maximum_old( T a, T b) {
+    return a > b ? a : b;
+}
+
+/*
+ * ao inves da palavra class, posso usar o typename, tem o mesmo resultado
+ * fica estranho usar "class", visto que é a palavra reservada para criar classes
+ * o efeito é o mesmo
+ */
+template <typename T>
 T maximum( T a, T b) {
     return a > b ? a : b;
 }
