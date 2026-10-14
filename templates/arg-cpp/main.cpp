@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdarg.h>
-
+#include <stdint.h>
 using namespace std;
 /*
  * funcao criada para acumular valores, recebendo como primeiro argumento a quntatidade de parametros
@@ -40,11 +40,10 @@ auto accumulate(T first, Args... args) {
 int main() {
 
     //auto -> deduz o tipo da variavel de acordo com a inicialização
-    auto r = accumulate<int>(2, 3, 5);
-    cout << "tipo de R: " << typeid(r).name() << endl;
 
-    auto nome = "teste";
-    cout << "tipo de NOME: " << typeid(nome).name() << endl;
+    //nesse caso, se nao for usado o auto no template, ele vai entender que eh um retorno do tipo
+    //uint8_t, e nao retorna a soma correta
+    auto r = accumulate(uint8_t(1), 1000, 1000, 500, 500, 1000);
 
     cout << "result: " << r << endl;
 
