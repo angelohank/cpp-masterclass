@@ -1,24 +1,7 @@
 #include <iostream>
-#include <limits>
 #include <array>
 
 using namespace std;
-
-template <typename T>
-auto maxElement( const T* array, const size_t size ) {
-    if (!array || size == 0) {
-        return std::numeric_limits<T>::min();
-    }
-
-    auto maiorElemento = array[0];
-    for (size_t i = 1; i < size; ++i) {
-        if (array[i] > maiorElemento) {
-            maiorElemento = array[i];
-        }
-    }
-
-    return maiorElemento;
-}
 
 template <typename T>
 auto maxElement( const T& array ) {
@@ -45,8 +28,6 @@ int main() {
     age[2] = 95.2;
     age[3] = 52;
     age[4] = 17;
-
-    cout << maxElement( age, 5 ) << endl;
 
     //---------------------------------------
 
