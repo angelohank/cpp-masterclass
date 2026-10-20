@@ -23,7 +23,7 @@ public:
          * sintaxe: static_assert(condicao esperada, mensagem de erro)
          */
         static_assert(sizeof ... (Values) <= Size, "To many initializers"); //aponta erro quando mais elementos do que o indicado sao passados
-        static_assert((std::is_constructible_v<Values, T && ...), "All values must be T"); //aponta erro caso seja passado um tipo que nao pode ser convertido
+        static_assert((std::is_constructible_v<Values, T> && ...), "All values must be T"); //aponta erro caso seja passado um tipo que nao pode ser convertido
         const std::array<T, sizeof...(Values)> temp = {values...};
         std::copy(temp.begin(), temp.end(), _elementos);
     }
