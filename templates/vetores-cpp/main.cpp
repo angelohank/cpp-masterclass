@@ -1,7 +1,65 @@
 #include <iostream>
 #include <array>
+#include <ranges>
 
 using namespace std;
+
+template <typename T, size_t Size>
+class Array {
+public:
+    //criando "apelidos" para as coisas que vamos usar
+    using value_type = T;
+    using size_type = size_t;
+    using reference = T&;
+    using const_reference = const T&;
+    using pointer = T*;
+
+    Array() = default;
+
+    template <typename... Values>
+    constexpr Array(Values... values) {
+        /*
+         * static_assert serve para indicar alguns erros na hora de compilar, deixando mais claras as condicoes
+         * sintaxe: static_assert(condicao esperada, mensagem de erro)
+         */
+        static_assert(sizeof ... (Values) <= Size, "To many initializers"); //aponta erro quando mais elementos do que o indicado sao passados
+        static_assert((std::is_constructible_v<Values, T && ...), "All values must be T"); //aponta erro caso seja passado um tipo que nao pode ser convertido
+        const std::array<T, sizeof...(Values)> temp = {values...};
+        std::copy(temp.begin(), temp.end(), _elementos);
+    }
+
+    //atributo que informa, para quem chamar a função marcada, que nao se deve descartar o retorno dela
+    [[nodiscard]] constexpr size_type size() const noexcept {
+        return Size;
+    }
+
+    constexpr bool empty() const noexcept {
+        return Size == 0;
+    }
+
+    /*
+     * preciso dessa segunda versao do operador por conta de:
+     * como o array é passado como const para a maxElement, se nao tiver esse const, ele entende que sera alterado o ponteiro this
+     *
+     * preciso dessa versao, sem o const, para poder atributir valor às posicoes do array
+     */
+    [[nodiscard]] constexpr reference operator[](size_type posicao) noexcept {
+        return _elementos[posicao];
+    }
+
+    /*
+     * preciso dessa segunda versao do operador por conta de:
+     * como o array é passado como const para a maxElement, se nao tiver esse const, ele entende que sera alterado o ponteiro this
+     * e ele é usado para pegar o valor de uma determinada posicao do array, sem atribuir valor, por isso const
+     */
+    [[nodiscard]] constexpr const_reference operator[](size_type posicao) const noexcept {
+        return _elementos[posicao];
+    }
+
+private:
+    T _elementos[Size] {};
+};
+
 
 template <typename T>
 auto maxElement( const T& array ) {
@@ -21,30 +79,11 @@ auto maxElement( const T& array ) {
 
 int main() {
 
-    float age[5] {};
+    Array<float, 5> ages{12,19,17,95.5,52};
+    std::array<float, 5> ages2{12,19,17,95.5, "52"};
 
-    age[0] = 12;
-    age[1] = 19;
-    age[2] = 95.2;
-    age[3] = 52;
-    age[4] = 17;
-
-    //---------------------------------------
-
-    std::array<float, 0> age2; //permite que usemos as funcoes empty e size
-    // age2[0] = 12;
-    // age2[1] = 19;
-    // age2[2] = 95.2;
-    // age2[3] = 52;
-    // age2[4] = 17;
-
-    try {
-        cout << maxElement( age2 ) << endl;
-    } catch (const std::runtime_error& e) {
-        cout << e.what() << endl;
-    } catch (...) {
-        cout << "unknown exception" << endl;
-    }
+    const auto res = maxElement(ages);
+    cout << res;
 
     return 0;
 }
